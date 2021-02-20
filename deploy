@@ -1,0 +1,8 @@
+cd /Users/tamahongzhao/workspace/byteforce/parent
+mvn clean deploy
+cd /Users/tamahongzhao/workspace/byteforce/mvn-repo
+#git add -A
+#git commit -m 'upload repo'
+#git push
+
+
