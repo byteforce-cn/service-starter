@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <groupId>cn.byteforce</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>byteforce-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>byteforce</name>
+    <description>byteforce parent</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+        <spring-cloud-stream.version>Horsham.SR10</spring-cloud-stream.version>
+        <spring-security-oauth2-boot.version>2.1.4.RELEASE</spring-security-oauth2-boot.version>
+        <springfox.version>2.9.2</springfox.version>
+        <guava.version>23.0</guava.version>
+        <lombok.version>1.16.22</lombok.version>
+        <joda.version>2.9.9</joda.version>
+        <servlet.version>3.1.0</servlet.version>
+        <mysql.version>5.1.21</mysql.version>
+        <redisson.version>3.15.2</redisson.version>
+        <micrometer.version>1.5.1</micrometer.version>
+        <flowable.version>6.5.0</flowable.version>
+        <kryo.version>5.0.2</kryo.version>
+        <main.basedir>${basedir}</main.basedir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- data -->
+        <spark.version>3.0.0</spark.version>
+        <delta.version>0.7.0</delta.version>
+        <scalatest.version>3.2.0</scalatest.version>
+        <scala.logging.version>3.9.2</scala.logging.version>
+        <aliyun.oss.version>3.11.3</aliyun.oss.version>
+        <poi.version>4.1.2</poi.version>
+    </properties>
+
+    <modules>
+        <module>deps</module>
+         <module>starter</module>
+         <module>plugin</module>
+        <module>data</module>
+        <module>model</module>
+        <module>util</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                    <configuration>
+                        <altDeploymentRepository>internal.repo::default::file:///Users/tamahongzhao/workspace/byteforce/mvn-repo/repository</altDeploymentRepository>
+                        <altReleaseDeploymentRepository>internal.repo::default::file:///Users/tamahongzhao/workspace/byteforce/mvn-repo/repository/release</altReleaseDeploymentRepository>
+                        <altSnapshotDeploymentRepository>internal.repo::default::file:///Users/tamahongzhao/workspace/byteforce/mvn-repo/repository/snapshot</altSnapshotDeploymentRepository>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
